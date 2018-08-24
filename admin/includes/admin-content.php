@@ -51,14 +51,19 @@
             
             $user->save(); */
             
-            $user= new User();
+            /* $user= new User();
             $user->username="maria";
-            $user->save();
+            $user->save(); */
            /*  $users=User::find_all();
            // print_r($users);
             foreach ($users as $user) {
                 echo $user->username."<br>";
             } */
+            $photos=Photo::find_all();
+            //print_r($photos);
+            foreach ($photos as $photo) {
+                echo $photo->title."<br>";
+            }
         ?>
     </div>
 </div>

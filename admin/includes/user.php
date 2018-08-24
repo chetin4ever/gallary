@@ -1,6 +1,6 @@
 <?php
     class User extends Db_object{
-
+        protected static $db_table="users";
         protected static $db_table_field=array('username','password','first_name','last_name');
         public $id;
         public $username;
@@ -27,3 +27,4 @@
     //$user= new User();
     //$user->properties();
 ?>
+

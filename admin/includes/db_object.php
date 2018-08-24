@@ -1,8 +1,6 @@
 <?php
     class Db_object{
 
-        protected static $db_table="users";
-
         public static function find_all(){
             $result_set=static::find_by_query("SELECT * FROM ". static::$db_table ." ");
               return($result_set);
@@ -19,7 +17,7 @@
 
         public static function find_by_query($sql){
             global $database;
-            print $sql;
+            //print $sql;
             $the_object_array= array();
             
             $result_set=$database->query($sql);
