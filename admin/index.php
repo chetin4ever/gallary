@@ -1,14 +1,8 @@
 <?php include("includes/header.php"); ?>
-<?php
-
-if(!$session->is_signed_in()){
-    redirect("login.php");
-}
-
-?>
+<?php if(!$session->is_signed_in()){ redirect("login.php");} ?>
 
     <div id="wrapper">
-    
+
 
 
         <!-- Navigation -->
@@ -21,9 +15,9 @@ if(!$session->is_signed_in()){
                 <!-- Page Heading -->
                 <?php
                 include("includes/admin-content.php");
-               
+
                 ?>
-                
+
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">
@@ -116,9 +110,9 @@ if(!$session->is_signed_in()){
                     </div>
                 </div>
 
-                
 
-              
+
+
             </div>
             <!-- /.container-fluid -->
 

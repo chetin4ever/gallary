@@ -12,7 +12,7 @@ class Session{
     public function is_signed_in(){
         print $this->signed_in;
         return ($this->signed_in);
-   
+
     }
 
     public function login($user){
@@ -35,7 +35,7 @@ class Session{
         }
         else{
             unset($this->user_id);
-            $this->singed_in=false; 
+            $this->singed_in=false;
         }
     }
 }

@@ -6,7 +6,7 @@
 			$this->open_db_connection();
 		}
 		public function open_db_connection(){
-			
+
 			/*$this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 			if(!$this->connection){
 				echo"failed";
@@ -21,9 +21,10 @@
 			}
 		}
 		public function query($sql){
-			
+			print_r($sql);
+			print "chetan";
 			$result=mysqli_query($this->connection,$sql);
-			//print_r($result);
+			print_r($result);
 			return $result;
 		}
 		private function confirm_query($result){

@@ -57,7 +57,11 @@
             <li>
                 <a href="comments.php"><i class="fa fa-fw fa-comment"></i> Comments</a>
             </li>
-            
+            <li>
+                <a href="upload.php"><i class="fa fa-fw fa-upload"></i> Upload</a>
+            </li>
+
+
             <li class="">
                 <a href="categories.php"><i class="fa fa-fw fa-list"></i> Categories</a>
             </li>

@@ -5,11 +5,11 @@
             $result_set=static::find_by_query("SELECT * FROM ". static::$db_table ." ");
               return($result_set);
           }
-    
-        public static function find_by_id($user_id){
-         //print $user_id;
+
+        public static function find_by_id($id){
+         //print $id;
             global $database;
-            $the_result_array=static::find_by_query("select * from " .static::$db_table. " where id=$user_id");
+            $the_result_array=static::find_by_query("select * from " .static::$db_table. " where id=$id");
           //print $the_result_array;
             return !empty($the_result_array) ? array_shift($the_result_array) :false;
             //return $found_user;
@@ -19,7 +19,7 @@
             global $database;
             //print $sql;
             $the_object_array= array();
-            
+
             $result_set=$database->query($sql);
             //print_r($result_set);
             while($row=mysqli_fetch_array($result_set)){
@@ -37,8 +37,8 @@
             $obj->password=$found_user['password'];
             $obj->first_name=$found_user['first_name'];
             $obj->last_name=$found_user['last_name'];*/
-            foreach ($the_record as $the_attribute => $value) {     
-                
+            foreach ($the_record as $the_attribute => $value) {
+
                 if($obj->has_the_attribute($the_attribute)){
                     $obj->$the_attribute=$value;
                 }
@@ -63,7 +63,7 @@
              }
              return $properties;
          }//end of method properties
- 
+
          protected function clean_properties(){
              global $database;
              $clean_properties=array();
@@ -82,19 +82,22 @@
              $sql.= $database->escape_string($this->last_name)."')";
               */
              $properties=$this->clean_properties();
-             $sql = "INSERT INTO " .static::$db_table. "(". implode(" , ",array_keys($properties)).")";
-             $sql.= "VALUES('".implode("','",array_values($properties))."')";   
+           // print_r($properties);
+             $sql = "INSERT INTO " .static::$db_table. " ( " . implode( " , ",array_keys($properties) )." ) ";
+             $sql.= "VALUES ('".implode("','",array_values($properties))."')";
+             print_r($sql);
              if($database->query($sql)){
                  $this->id=$database->the_insert_id();
+                 print $this->id;
                  return true;
              }
              else{
                  return false;
              }
          }//end og create
- 
- 
-         
+
+
+
          public function update(){
              global $database;
              $properties=$this->clean_properties();
@@ -107,7 +110,7 @@
              $sql.=" WHERE id=".$database->escape_string($this->id);
              echo $sql;
              $database->query($sql);
- 
+
              return (mysqli_affected_rows($database->connection)==1) ? true : false;
              /*
              $sql="UPDATE " .static::$db_table. " SET ";
@@ -115,13 +118,13 @@
              $sql.="password='".$database->escape_string($this->password)."', ";
              $sql.="first_name='".$database->escape_string($this->first_name)."', ";
              $sql.="last_name='".$database->escape_string($this->last_name)."' ";
-             $sql.=" WHERE id=".$database->escape_string($this->id); 
+             $sql.=" WHERE id=".$database->escape_string($this->id);
              //print $sql;
              $database->query($sql);
              return (mysqli_affected_rows($database->connection)==1) ? true : false;
              */
          }//end of update
-         
+
          public function delete(){
              global $database;
              $sql="DELETE FROM " .static::$db_table;
@@ -131,19 +134,19 @@
              return (mysqli_affected_rows($database->connection)==1) ? true :false;
              print $sql;
          }
- 
+
          public function save(){
              return isset($this->id) ? $this->update() : $this->create();
          }
 
-    
-    
 
 
 
 
-    } // end of class  
-     
+
+
+    } // end of class
+
 
 
 
