@@ -44,9 +44,9 @@
             $user->update(); */
             //$user->delete();
 
-            $photo=Photo::find_by_id(5);
+            /* $photo=Photo::find_by_id(5);
             echo $photo->title."<br>";
-            echo $photo->filename;
+            echo $photo->filename; */
             /*
             $user->first_name="piyu";
             $user->password="piyush";

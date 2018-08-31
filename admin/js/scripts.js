@@ -1,5 +1,6 @@
 tinymce.init({ selector:'textarea' });
 
+
 $(document).ready(function(){
     $('#selectAllBoxes').click(function(event){
         if(this.checked) {
