@@ -1,16 +1,33 @@
-#load-screen {
+
+
+.photo-info-box{
+    border: 1px solid red;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.40);
+    box-shadow: 0 1px 1px rgba(0,0,0,.40);
+    background-color: #fff;
+
+}
+
+.info-box-header{
+    padding: 6px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+
+    #load-screen {
     background: url(../images/header-back.png);
     position: fixed;
     z-index: 10000;
     top:0px;
     width: 100%;
     height: 1600px;
-    
+
     }
-    
-    
+
+
     #loading {
-    
+
     width: 500px;
     height: 500px;
     margin: 10% auto;
@@ -18,6 +35,5 @@
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
-    
+
     }
-    
